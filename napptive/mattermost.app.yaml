@@ -1,0 +1,38 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+
+metadata:
+  name: mattermost-preview
+  description: Mattermost Server
+
+spec:
+  components:
+    - name: mattermost-server
+      type: webservice
+      properties:
+        image: mattermost/mattermost-preview:latest
+        env:
+          - name: test
+            value: "test"
+        ports:
+          - port: 8065
+            expose: true
+        resources:
+          cpu: 0.5
+          memory: 512i
+      traits:
+        - type: napptive-ingress
+          properties:
+            port: 8065
+            path: /
+
+        - type: storage
+          properties:
+            pvc:
+              - name: data
+                accessModes:
+                  - ReadWriteOnce
+                mountPath: /data/db
+                resources:
+                  requests:
+                    storage: 1G

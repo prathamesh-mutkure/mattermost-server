@@ -1,0 +1,18 @@
+apiVersion: core.napptive.com/v1alpha1
+kind: ApplicationMetadata
+name: "Mattermost"
+version: "7.8.1"
+description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle
+keywords:
+  - "mattermost"
+  - "collaboration"
+  - "golang"
+  - "react"
+  - "react-native"
+license: "MIT"
+url: "https://mattermost.com/"
+doc: "https://docs.mattermost.com/"
+logo:
+  - src: "https://storage.googleapis.com/artifacts.playground.napptive.dev/logos/mongodb.svg"
+    type: "image/png"
+    size: "120x120"
