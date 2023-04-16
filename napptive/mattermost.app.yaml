@@ -2,7 +2,7 @@ apiVersion: core.oam.dev/v1beta1
 kind: Application
 
 metadata:
-  name: mattermost
+  name: mattermost-preview
   description: Mattermost Server
 
 spec:
@@ -25,3 +25,14 @@ spec:
           properties:
             port: 8065
             path: /
+
+        - type: storage
+          properties:
+            pvc:
+              - name: data
+                accessModes:
+                  - ReadWriteOnce
+                mountPath: /data/db
+                resources:
+                  requests:
+                    storage: 1G
